@@ -1,0 +1,32 @@
+<div class="shopping-cart">
+    <h2>Cesta({{ cartItems().length }})</h2>
+    @if(cartItems().length) {
+    <ul class="cart-list">
+        @for(item of cartItems(); track item.id) {
+        <li class="cart-item">
+            <img [src]="item.img" width="150px" alt="{{item.name}}" class="product-image" />
+            <div class="product-details">
+                <div class="product-name">{{ item.name | uppercase}}</div>
+                <div class="product-price">
+                    <!-- {{ item.price | currency: 'EUR' }} -->
+                    100€
+                </div>
+            </div>
+            <button mat-icon-button color="secondary" (click)="removeFromCart(item.id)" class="remove-btn"
+                aria-label="Eliminar">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </li>
+        <hr>
+        }
+    </ul>
+    <div class="checkout flex">
+        <strong>{{ total | currency: 'EUR' }}</strong>
+        <button mat-raised-button color="primary" class="checkout-btn" (click)="checkout()">
+            Proceder al pago
+        </button>
+    </div>
+    } @else {
+    <p>El carrito está vacío.</p>
+    }
+</div>

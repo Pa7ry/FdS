@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="menuToggle.emit()" aria-label="Abrir menú lateral">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span class="spacer"></span>
+    <a mat-icon-button href="./shopping-cart" aria-label="Ir al carrito">
+        <mat-icon [matBadge]="shoppingCartProducts().length">shopping_cart</mat-icon>
+    </a>
+</mat-toolbar>

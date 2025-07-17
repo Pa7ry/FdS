@@ -1,0 +1,13 @@
+<div class="gallery-container">
+    @for (item of items; track item; let i = $index) {
+    <div class="gallery-item" [ngClass]="{'fullWidth': (i > 3 && i % 3 === 1)}" (click)="onItemClick(item)">
+        <img [src]="item.img" [alt]="item.title" />
+        <div class="gallery-item-info">
+            <p>{{ item.name | uppercase }}</p>
+            <p>{{ i | currency: 'EUR' }}</p>
+        </div>
+    </div>
+    }
+</div>
+
+<!-- t-2 micro linux -->

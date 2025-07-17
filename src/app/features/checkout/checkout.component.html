@@ -1,0 +1,46 @@
+<h2>Datos de envío</h2>
+<form [formGroup]="checkoutForm" novalidate>
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput id="nombre" type="text" formControlName="nombre" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Apellidos</mat-label>
+        <input matInput id="apellidos" type="text" formControlName="apellidos" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Dirección (calle y número)</mat-label>
+        <input matInput id="direccion" type="text" formControlName="direccion" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Línea de dirección adicional</mat-label>
+        <input matInput id="direccionAdicional" type="text" formControlName="direccionAdicional"
+            placeholder="Planta, bloque, escalera, puerta, etc.">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="postal-code">
+        <mat-label>Código Postal</mat-label>
+        <input matInput id="codigoPostal" type="text" formControlName="codigoPostal" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="city">
+        <mat-label>Ciudad</mat-label>
+        <input matInput id="ciudad" type="text" formControlName="ciudad" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Número de teléfono</mat-label>
+        <input matInput id="telefono" type="tel" formControlName="telefono" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Correo electrónico</mat-label>
+        <input matInput id="email" type="email" formControlName="email" required>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="checkoutForm.invalid"
+        class="payment-btn">Pagar</button>
+</form>

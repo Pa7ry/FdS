@@ -1,0 +1,26 @@
+<mat-sidenav-container class="app-container">
+
+    <mat-sidenav #sidenav mode="over" position="start">
+        <div class="menu-header">
+            <h3>Menú</h3>
+        </div>
+        <mat-nav-list>
+            @for (item of menuItems; track item) {
+            <a mat-list-item [href]="item.path" (click)="sidenav.close()">
+                <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+                <span matListItemTitle>{{ item.title }}</span>
+            </a>
+            }
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <app-header (menuToggle)="sidenav.toggle()"></app-header>
+        <main class="main-content">
+            <router-outlet></router-outlet>
+            <app-footer></app-footer>
+        </main>
+
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

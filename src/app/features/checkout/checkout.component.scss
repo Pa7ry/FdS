@@ -1,0 +1,25 @@
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+}
+
+mat-form-field {
+    width: 50%;
+
+    @media (max-width: 767px) {
+        width: 100%;
+    }
+}
+
+.postal-code {
+    width: 30%;
+}
+
+.city {
+    width: 68%;
+}
+
+.payment-btn {
+    margin-left: auto;
+}

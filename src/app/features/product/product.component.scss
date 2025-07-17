@@ -1,0 +1,25 @@
+.product-container {
+    height: 100%;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+}
+
+.product-details {
+    padding: 16px;
+    padding-bottom: 125px;
+}
+
+.product-actions {
+    background: #fff;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    bottom: 67px;
+
+    button {
+        width: 90%;
+    }
+}
