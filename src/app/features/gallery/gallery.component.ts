@@ -1,6 +1,6 @@
 import { CommonModule, CurrencyPipe, UpperCasePipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { ProductsService } from '../../core/services/products.service';
+import { ProductsService } from '../../core/services/products/products.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,11 +18,11 @@ export class GalleryComponent {
   private readonly router = inject(Router);
 
   ngOnInit() {
-    this.productsService.getProducts().then((products) => this.items = products);
+    this.productsService.getProducts().subscribe((products) => this.items = products);
   }
 
   onItemClick(item: any): void {
     console.log('Item clicked:', item);
-    this.router.navigate(['/product', item.id]);
+    this.router.navigate(['/product', item._id]);
   }
 }

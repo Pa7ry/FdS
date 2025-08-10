@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, Signal } from '@angular/core';
-import { Product } from '../../core/services/products.service';
+import { Product } from '../../core/services/products/products.service';
 import { ShoppingCartStore } from '../../core/store/shopping-cart.store';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
+import { PaymentService } from '../../core/services/payment/payment.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -14,10 +15,16 @@ import { Router } from '@angular/router';
 })
 export class ShoppingCartComponent {
   private readonly shoppingCartStore = inject(ShoppingCartStore);
+  private readonly paymentService = inject(PaymentService);
+
   private readonly router = inject(Router);
 
-  cartItems = this.shoppingCartStore.products$
+  cartItems = this.shoppingCartStore.products$;
   total: number = 0;
+
+  ngOnInit() {
+    this.calculateTotal();
+  }
 
   removeFromCart(itemId: string) {
     // this.cartItems = this.cartItems.filter(i => i.id !== itemId);
@@ -31,12 +38,15 @@ export class ShoppingCartComponent {
   }
 
   private calculateTotal() {
-    this.total = 100
-    // this.cartItems.reduce((sum, item) => sum + item.price, 0);
+    this.total = this.cartItems().reduce((sum, item) => sum + (item.price || 0), 0);
   }
 
   checkout() {
-    this.router.navigate(['/checkout']);
-    console.log('Checkout process initiated');
+    this.paymentService.createCheckoutSession().subscribe({
+      next: (res) => {
+        window.location.href = res.url; // redirige a Stripe
+      },
+      error: (err) => console.error(err)
+    });
   }
 }

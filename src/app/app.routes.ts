@@ -2,10 +2,6 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
     {
-        path: '',
-        loadComponent: () => import('./features/home/home.component').then(m => m.HomeComponent)
-    },
-    {
         path: 'gallery',
         loadComponent: () => import('./features/gallery/gallery.component').then(m => m.GalleryComponent)
     },
@@ -22,7 +18,15 @@ export const routes: Routes = [
         loadComponent: () => import('./features/shopping-cart/shopping-cart.component').then(m => m.ShoppingCartComponent)
     },
     {
-        path: 'checkout',
-        loadComponent: () => import('./features/checkout/checkout.component').then(m => m.CheckoutComponent)
+        path: 'success',
+        loadComponent: () => import('./features/payment-success/payment-success.component').then(m => m.PaymentSuccessComponent)
+    },
+    {
+        path: 'cancel',
+        loadComponent: () => import('./features/payment-cancel/payment-cancel.component').then(m => m.PaymentCancelComponent)
+    },
+    {
+        path: '**',
+        loadComponent: () => import('./features/home/home.component').then(m => m.HomeComponent)
     },
 ];

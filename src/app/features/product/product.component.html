@@ -1,21 +1,18 @@
 <div class="product-container">
-    <img [src]="product?.img" [alt]="product?.name" class="product-image" />
+    <div class="product-image-container">
+        <img [src]="product?.img" [alt]="product?.name" class="product-image" />
+    </div>
     <div class="product-details">
         <h2>{{ product?.name | uppercase }}</h2>
         <!-- <p>{{ product.description }}</p> -->
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus dui nisi, vitae aliquam lorem sagittis
-            vitae. Sed semper mi sit amet metus dapibus, vel aliquam felis porttitor. In hac habitasse platea dictumst.
-            Maecenas ante ligula, faucibus nec pretium in, rutrum in metus. Nullam efficitur enim sit amet nunc
-            elementum, eu tempor dui posuere. Aenean vel massa sed tellus porta molestie a vitae velit. Sed vel ex
-            dictum, congue risus eu, mollis est. Fusce eget pharetra enim. Aliquam tincidunt iaculis purus, non mattis
-            massa finibus vel. Integer vel dui a lorem rhoncus gravida a ut mauris. Ut at cursus neque, a egestas felis.
-            Aliquam gravida rhoncus orci et commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-            elementum lobortis risus.</p>
-        <p class="product-price">{{ product?.price | currency: 'EUR' }}</p>
+        <p><b>Técnica: </b>{{ product.technique }}</p>
+        <p><b>Medidas: </b>{{ product.measures }}</p>
+        <p class="product-price"><b>Precio: </b>{{ product?.price | currency: 'EUR' : 'symbol' : '1.2-2' : 'es' }}</p>
     </div>
-    <div class="product-actions">
-        <button mat-fab extended color="primary" (click)="addToCart(product)">
-            Añadir al carrito
-            <mat-icon>add_shopping_cart</mat-icon>
-        </button>
-    </div>
+</div>
+<div class="product-actions">
+    <button mat-fab extended color="primary" (click)="addToCart(product)">
+        Añadir al carrito
+        <mat-icon>add_shopping_cart</mat-icon>
+    </button>
+</div>

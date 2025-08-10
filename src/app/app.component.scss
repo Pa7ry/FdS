@@ -13,7 +13,7 @@
 mat-sidenav {
     width: 280px; // Ajusta el ancho según necesites
     padding: 16px;
-    // background-color: white; // O el color de fondo deseado
+    // background-color: 23272f; // O el color de fondo deseado
 }
 
 .menu-header {
@@ -29,10 +29,15 @@ mat-sidenav {
 
 .main-content {
     flex: 1;
-    padding: 20px;
+    padding: 50px 70px;
     overflow-y: auto;
     background-color: #fff;
     margin-bottom: 52px;
+    // background-color: #23272f;
+
+    @media (max-width: 767px) {
+        padding: 20px;
+    }
 }
 
 mat-sidenav-content {

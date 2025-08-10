@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../services/products.service';
+import { Product } from '../services/products/products.service';
 import { signal } from '@angular/core';
 
 
@@ -25,7 +25,7 @@ export class ShoppingCartStore {
 
     addProduct(product: Product) {
         const products = [...this.productsSignal()];
-        const index = products.findIndex(p => p.id === product.id);
+        const index = products.findIndex(p => p._id === product._id);
         if (index === -1) {
             products.push(product);
         }
@@ -34,7 +34,7 @@ export class ShoppingCartStore {
     }
 
     removeProduct(productId: string) {
-        const products = this.productsSignal().filter(p => p.id !== productId);
+        const products = this.productsSignal().filter(p => p._id !== productId);
         this.productsSignal.set(products);
         this.saveToLocalStorage(products);
     }
