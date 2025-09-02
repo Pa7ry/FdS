@@ -11,9 +11,8 @@
 
 // Estilo del Sidenav (Drawer)
 mat-sidenav {
-    width: 280px; // Ajusta el ancho según necesites
+    width: 280px;
     padding: 16px;
-    // background-color: 23272f; // O el color de fondo deseado
 }
 
 .menu-header {
@@ -32,8 +31,6 @@ mat-sidenav {
     padding: 50px 70px;
     overflow-y: auto;
     background-color: #fff;
-    margin-bottom: 52px;
-    // background-color: #23272f;
 
     @media (max-width: 767px) {
         padding: 20px;

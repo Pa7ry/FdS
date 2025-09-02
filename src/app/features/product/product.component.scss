@@ -1,6 +1,5 @@
 .product-container {
     margin-bottom: 126px;
-    height: calc(100% - 130px);
     display: flex;
     gap: 16px;
 
@@ -14,17 +13,14 @@
    border-radius: 10px;
    padding: 16px;
    height: 85%;
+   text-align: center;
 }
 
 .product-image {
     height: 100%;
-    width: auto;
+    width: 100%;
     border-radius: 8px;
-
-        @media (max-width: 767px) {
-        width: 100%;
-        height: auto;
-    }
+    min-height: 300px;
 }
 
 .product-details {
@@ -39,9 +35,15 @@
     display: flex;
     justify-content: center;
     position: fixed;
-    bottom: 67px;
+    bottom: 15px;
 
     button {
         width: 90%;
     }
+}
+
+.product-data-loading {
+    height: 40px;
+    width: 100%;
+    margin-bottom: 12px;
 }

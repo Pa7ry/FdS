@@ -42,11 +42,12 @@ export class ShoppingCartComponent {
   }
 
   checkout() {
-    this.paymentService.createCheckoutSession().subscribe({
-      next: (res) => {
-        window.location.href = res.url; // redirige a Stripe
-      },
-      error: (err) => console.error(err)
-    });
+    console.log('Checkout - Total amount:', this.total);
+    // this.paymentService.createCheckoutSession().subscribe({
+    //   next: (res) => {
+    //     window.location.href = res.url; // redirige a Stripe
+    //   },
+    //   error: (err) => console.error(err)
+    // });
   }
 }
