@@ -25,7 +25,7 @@ export class PaymentService {
 
   createCheckoutSession() {
     return this.http.post<{ url: string }>(
-      'http://localhost:3000/create-checkout-session',
+      'https://fds-node.onrender.com/create-checkout-session',
       {}
     );
   }

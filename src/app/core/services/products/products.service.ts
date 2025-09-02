@@ -24,14 +24,14 @@ export class ProductsService {
   private http = inject(HttpClient);
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>('http://localhost:3000/products');
+    return this.http.get<Product[]>('https://fds-node.onrender.com/products');
   }
 
   sellProduct(id: string): Observable<Product> {
-    return this.http.patch<Product>(`http://localhost:3000/products/${id}/sell`, {});
+    return this.http.patch<Product>(`https://fds-node.onrender.com/products/${id}/sell`, {});
   }
 
   getProductById(id: string): Observable<Product> {
-    return this.http.get<Product>(`http://localhost:3000/products/${id}`);
+    return this.http.get<Product>(`https://fds-node.onrender.com/products/${id}`);
   }
 }
