@@ -6,6 +6,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 import { PaymentService } from '../../core/services/payment/payment.service';
+import {
+  MatDialog,
+} from '@angular/material/dialog';
+import { NoPaymentDialogComponent } from '../no-payment-dialog/no-payment-dialog.component';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -18,6 +22,7 @@ export class ShoppingCartComponent {
   private readonly paymentService = inject(PaymentService);
 
   private readonly router = inject(Router);
+  private readonly dialog = inject(MatDialog);
 
   cartItems = this.shoppingCartStore.products$;
   total: number = 0;
@@ -43,6 +48,8 @@ export class ShoppingCartComponent {
 
   checkout() {
     console.log('Checkout - Total amount:', this.total);
+
+    this.dialog.open(NoPaymentDialogComponent);
     // this.paymentService.createCheckoutSession().subscribe({
     //   next: (res) => {
     //     window.location.href = res.url; // redirige a Stripe
