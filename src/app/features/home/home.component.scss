@@ -1,5 +1,7 @@
-.home__container {
-    padding: 40px 15%;
+@media (min-width: 767px) {
+    .home__container {
+        padding: 40px 15%;
+    }
 }
 
 .home__front-page {
