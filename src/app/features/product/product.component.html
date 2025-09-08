@@ -1,27 +1,26 @@
 <div class="product-container">
     <div class="product-image-container">
         @if (product) {
-            <img [src]="product?.img" [alt]="product?.name" class="product-image" />
+        <img [src]="product?.img" [alt]="product?.name" class="product-image" />
         } @else {
-            <div class="product-image loader-skeleton"></div>
+        <div class="product-image loader-skeleton"></div>
         }
     </div>
     <div class="product-details">
         @if (product) {
-            <h2>{{ product?.name | uppercase }}</h2>
-            <p><b>Técnica: </b>{{ product?.technique }}</p>
-            <p><b>Medidas: </b>{{ product?.measures }}</p>
-            <p class="product-price"><b>Precio: </b>{{ product?.price | currency: 'EUR' : 'symbol' : '1.2-2' : 'es' }}</p>
+        <h2>{{ product?.name | uppercase }}</h2>
+        <p><b>Técnica: </b>{{ product?.technique }}</p>
+        <p><b>Medidas: </b>{{ product?.measures }}</p>
+        <p class="product-price"><b>Precio: </b>{{ product?.price | currency: 'EUR' : 'symbol' : '1.2-2' : 'es' }}</p>
+        
+        <button class="product-shop-btn" mat-fab extended color="primary" (click)="addToCart(product)">
+            Añadir al carrito
+            <mat-icon>add_shopping_cart</mat-icon>
+        </button>
         } @else {
-            @for (row of [1, 2, 3]; track row) {
-                <div class="product-data-loading loader-skeleton"></div>
-            }
+        @for (row of [1, 2, 3]; track row) {
+        <div class="product-data-loading loader-skeleton"></div>
+        }
         }
     </div>
-</div>
-<div class="product-actions">
-    <button mat-fab extended color="primary" (click)="addToCart(product)">
-        Añadir al carrito
-        <mat-icon>add_shopping_cart</mat-icon>
-    </button>
 </div>

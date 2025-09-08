@@ -1,0 +1,50 @@
+.home__front-page {
+    width: 100%;
+}
+
+p {
+    font-size: 16px;
+}
+
+.home__text-intro {
+    margin: 2rem 0;
+}
+
+.home__margin-2 {
+    margin-left: 1.5rem;
+}
+
+.home__margin-3 {
+    margin-left: 3rem;
+}
+
+.home__contact {
+    width: 100%;
+    text-align: center;
+}
+
+.home__email {
+    font-size: 20px;
+    text-decoration: none;
+    color: #fb3199;
+}
+
+.home__email:hover {
+    text-decoration: underline;
+    color: #d32981;
+}
+
+.home__link {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.home__link a {
+    color: #00b9f2;
+    font-size: 30px;
+}
+
+.home__link a:hover {
+    color: #1e85ad;
+    font-size: 30px;
+}

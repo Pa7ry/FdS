@@ -2,7 +2,7 @@
     @for (item of items; track item; let i = $index) {
     <div class="gallery-item" (click)="onItemClick(item)">
         <img [src]="item.img" [alt]="item.title" />
-        <div class="gallery-item-info">
+        <div class="gallery-item-info text-center">
             <p><b>{{ item.name | uppercase }}</b></p>
             <p>{{ item.price | currency: 'EUR' : 'symbol' : '1.2-2' : 'es' }}</p>
         </div>
